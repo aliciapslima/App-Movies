@@ -1,7 +1,9 @@
 import Banner from "./components/Banner";
+import Card from "./components/Card";
 import Conteiner from "./components/Conteiner";
 import Footer from "./components/Footer";
 import Header from "./components/Header";
+import videos from  './json/db.json';
 
 function App() {
   return (
@@ -9,8 +11,10 @@ function App() {
       <Header />
       <Banner image="favoritos" />
       <Conteiner>
-        <h1>Hello World!</h1>
-        <p>Welcome to the app.</p>
+      <h2>Geografia</h2>
+      <section className="cards">
+        { videos.map((video) => <Card id={video.id} key={video.id} />)}
+      </section>
       </Conteiner>
       <Footer />
     </>
