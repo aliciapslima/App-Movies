@@ -1,9 +1,10 @@
+import Category, { categories, filterCategory } from "./components/Category";
+
 import Banner from "./components/Banner";
 import Card from "./components/Card";
 import Conteiner from "./components/Conteiner";
 import Footer from "./components/Footer";
 import Header from "./components/Header";
-import videos from  './json/db.json';
 
 function App() {
   return (
@@ -11,10 +12,14 @@ function App() {
       <Header />
       <Banner image="favoritos" />
       <Conteiner>
-      <h2>Geografia</h2>
-      <section className="cards">
-        { videos.map((video) => <Card id={video.id} key={video.id} />)}
-      </section>
+        {
+          categories.map((category, index) => 
+          <Category category={category}>
+            {
+              filterCategory(index).map((video) => <Card id={video.id} key={video.id} />
+              )}
+          </Category>
+        )}        
       </Conteiner>
       <Footer />
     </>
